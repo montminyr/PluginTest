@@ -25,23 +25,26 @@ from unmanic.libs.unplugins.settings import PluginSettings
 class Settings(PluginSettings):
     settings = {}
 
+class PluginStreamMapper(StreamMapper):
+    def __init__(self):
+        super(PluginStreamMapper, self).__init__(logger, ['video'])
+        
+    def test_stream_needs_processing(self, stream_info: dict):
+        if not self.container_data:
+            self.container_data = self.settings.get_configured_container_data()
 
-def test_stream_needs_processing(self, stream_info: dict):
-    if not self.container_data:
-        self.container_data = self.settings.get_configured_container_data()
+        # Check if codec type is supported
+        codec_type = stream_info.get('codec_type', '').lower()
+        if codec_type not in self.container_data.get('codec_types'):
+            return True
 
-    # Check if codec type is supported
-    codec_type = stream_info.get('codec_type', '').lower()
-    if codec_type not in self.container_data.get('codec_types'):
-        return True
+        # Check if the codec name is supported for this container
+        codec_name = stream_info.get('codec_name', '').lower()
+        if codec_name not in self.container_data.get('codec_names', {}).get(codec_type, []):
+            return True
 
-    # Check if the codec name is supported for this container
-    codec_name = stream_info.get('codec_name', '').lower()
-    if codec_name not in self.container_data.get('codec_names', {}).get(codec_type, []):
-        return True
-
-    # Stream will be copied over
-    return False
+        # Stream will be copied over
+        return False
 
 def on_worker_process(data):
     """
