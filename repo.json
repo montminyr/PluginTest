@@ -1,0 +1,31 @@
+{
+    "repo": {
+        "id": "repository.axman43",
+        "name": "AXMAN43 Repo",
+        "icon": "",
+        "repo_data_directory": "https://raw.githubusercontent.com/Unmanic/unmanic-plugins/repo/",
+        "repo_data_url": "https://raw.githubusercontent.com/Unmanic/unmanic-plugins/repo/repo.json"
+    },
+    "plugins": [
+		{
+			"author": "Josh.5",
+			"compatibility": [
+				1,
+				2
+			],
+			"description": "Removes [b]all[/b] metadata (if it exists).\n\n[color=ff0000]WARNING![/color]\nThis includes things like titles and language of each stream.\nDon't use this if you intend to use other plugins that rely on this metadata such as plugins that re-order streams based on language.\nYou have been warned!",
+			"icon": "https://raw.githubusercontent.com/Josh5/unmanic.plugin.video_trim/master/icon.png",
+			"id": "strip_file_metadata",
+			"name": "Strip all stream metadata from file",
+			"platform": [
+				"all"
+			],
+			"priorities": {
+				"on_library_management_file_test": 99,
+				"on_worker_process": 1
+			},
+			"tags": "video,audio,subtitle,ffmpeg,worker",
+			"version": "0.0.3"
+		}
+    ]
+}
