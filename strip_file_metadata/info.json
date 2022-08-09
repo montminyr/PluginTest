@@ -12,7 +12,6 @@
         "all"
     ],
     "priorities": {
-		"on_library_management_file_test": 99,
         "on_worker_process": 1
     },
     "tags": "video,audio,subtitle,ffmpeg,worker",
