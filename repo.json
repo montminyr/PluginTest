@@ -3,8 +3,8 @@
         "id": "repository.axman43",
         "name": "AXMAN43 Repo",
         "icon": "",
-        "repo_data_directory": "https://raw.githubusercontent.com/Unmanic/unmanic-plugins/repo/",
-        "repo_data_url": "https://raw.githubusercontent.com/Unmanic/unmanic-plugins/repo/repo.json"
+        "repo_data_directory": "https://raw.githubusercontent.com/montminyr/PluginTest/main/",
+        "repo_data_url": "https://raw.githubusercontent.com/montminyr/PluginTest/main/repo.json
     },
     "plugins": [
 		{
@@ -21,7 +21,6 @@
 				"all"
 			],
 			"priorities": {
-				"on_library_management_file_test": 99,
 				"on_worker_process": 1
 			},
 			"tags": "video,audio,subtitle,ffmpeg,worker",
